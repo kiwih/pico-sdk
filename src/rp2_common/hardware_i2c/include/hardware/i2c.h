@@ -284,7 +284,7 @@ static inline int i2c_read_timeout_us(i2c_inst_t *i2c, uint8_t addr, uint8_t *ds
  */
 static inline int i2c_read_mem_timeout_us(i2c_inst_t *i2c, uint8_t addr, uint16_t memaddr, size_t len_memaddr, uint8_t *dst, size_t len, bool nostop, uint timeout_us) {
     absolute_time_t t = make_timeout_time_us(timeout_us);
-    return i2c_read_blocking_until(i2c, addr, dst, len, nostop, t);
+    return i2c_read_mem_blocking_until(i2c, addr, memaddr, len_memaddr, dst, len, nostop, t);
 }
 
 int i2c_read_timeout_per_char_us(i2c_inst_t *i2c, uint8_t addr, uint8_t *dst, size_t len, bool nostop, uint timeout_per_char_us);
